@@ -8,7 +8,7 @@
 
     <body>
         <div id="form_container">
-            <form method = "post" action = "AdventuerMade.php">
+            <form method = "post" action = "AdventureMade.php">
                 <ul class="appnitro">
                     <li class="first">Name:</li>
                     <li class="text"><input type="text" name="HeroName"></li>
@@ -34,7 +34,6 @@
                     <li class="first">Kingdom:</li>
                     <li class="text"><input type="text" name="KingdomName"></li>
                     <li><input type="submit" name="Create" value="Create Me"></li>                </ul>
-
             </form>
         </div>
     </body>
