@@ -86,11 +86,11 @@ if ($gender == "Male") {
     <body>
         <div id="form_container">
             <h3 class="Content">The Brave Adventurer</h3>
-            <div class="CharacterSheer">
+            <div class="CharacterSheet">
                <?php
                 print ($characterport);
                 print ($charactersheet);
-                ?> 
+               ?> 
             </div>         
         </div>
     </body>
