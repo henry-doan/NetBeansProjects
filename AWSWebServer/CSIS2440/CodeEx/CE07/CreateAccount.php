@@ -10,7 +10,7 @@ include 'header.php';
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         /* the form hasn't been posted yet, display it
           note that the action="" will cause the form to post to the same page it is on */
-        echo '<form method="post" action="PlayerLogin.php">
+        echo '<form method="post" action="">
             <div class="form-group">
             <label for="InputFname">First Name:</label> <input type="text" name="first_name" id="InputFname" class="form-control"/>
             <label for="InputLname">Last Name:</label> <input type="text" name="last_name" id="InputLname" class="form-control"/>
