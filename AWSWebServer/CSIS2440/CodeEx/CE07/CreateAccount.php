@@ -60,7 +60,7 @@ include 'header.php';
             //the form has been posted without, so save it
             //notice the use of mysql_fix_string, keep everything safe!
             //also notice the hash function which hashes the password
-            $sql = "INSERT INTO Player(PlayerFname, PlayerLname, PlayerEmail, PlayerPassword ,PlayerDate, PlayerLevel)
+            $sql = "INSERT INTO Player(PlayerFname, PlayerLname, PlayerEmail, PlayerPassword, PlayerDate, PlayerLevel)
                 VALUES('" . mysql_fix_string($con, $_POST['first_name']) . "',
                     '" . mysql_fix_string($con, $_POST['last_name']) . "',                       
                        '" . mysql_fix_string($con, $_POST['user_email']) . "',
