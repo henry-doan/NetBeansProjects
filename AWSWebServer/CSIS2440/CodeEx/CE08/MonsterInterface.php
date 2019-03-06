@@ -14,19 +14,19 @@ and open the template in the editor.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     </head>
     <body>
-    <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-md-7 col-sm-7">
                     <h4>Here is a list of the monsters we have in the Database</h4>
-                <?php
+                    <?php
                     require_once 'DataBaseConnection.php';
 
                     $search = "SELECT * FROM Library.Monsters Order by MonsterName";
-            
+
                     $return = $con->query($search);
 
                     if (!$return) {
-                        $failmess = "Whole query " . $search . "<br>"; 
+                        $failmess = "Whole query " . $search . "<br>";
                         echo $failmess;
                         die('Invalid query: ' . mysqli_error($con));
                     }
@@ -35,10 +35,10 @@ and open the template in the editor.
                         echo "<tr><td>Name: " . $row['MonsterName']
                         . "</td><td> AC: " . $row['MonsterAC']
                         . "</td><td> HD:" . $row['HitDice']
-                        . "</td><td> XP:" . $row['MonsterXP'] . "</td></tr>";     
+                        . "</td><td> XP:" . $row['MonsterXP'] . "</td></tr>";
                     }
                     echo "</tbody></table>";
-                ?>
+                    ?>
                 </div>
                 <div class="col-md-5 col-sm-5">
                     <form action="MonsterResults.php" method="post" role="form">
@@ -52,13 +52,13 @@ and open the template in the editor.
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <label for="ac">Monster AC:</label>
-                                        <input type="number" name="ac" class="form-control">
+                                    <input type="number" name="ac" class="form-control">
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <div class="form-group">
                                     <label for="hd">Hit Dice:</label>
-                                        <input type="number" name="hd" class="form-control">
+                                    <input type="number" name="hd" class="form-control">
                                 </div>
                             </li>
                             <li class="list-group-item">
@@ -85,27 +85,27 @@ and open the template in the editor.
                                     <select name="treasure" class="form-control">
                                         <option value="--">--</option>
                                         <option value="A">A</option>
-<option value="B">B</option>
-<option value="C">C</option>
-<option value="D">D</option>
-<option value="E">E</option>
-<option value="F">F</option>
-<option value="G">G</option>
-<option value="H">H</option>
-<option value="I">I</option>
-<option value="J">J</option>
-<option value="K">K</option>
-<option value="L">L</option>
-<option value="M">M</option>
-<option value="N">N</option>
-<option value="O">O</option>
-<option value="P">P</option>
-<option value="Q">Q</option>
-<option value="R">R</option>
-<option value="S">S</option>
-<option value="T">T</option>
-<option value="U">U</option>
-<option value="V">V</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                        <option value="F">F</option>
+                                        <option value="G">G</option>
+                                        <option value="H">H</option>
+                                        <option value="I">I</option>
+                                        <option value="J">J</option>
+                                        <option value="K">K</option>
+                                        <option value="L">L</option>
+                                        <option value="M">M</option>
+                                        <option value="N">N</option>
+                                        <option value="O">O</option>
+                                        <option value="P">P</option>
+                                        <option value="Q">Q</option>
+                                        <option value="R">R</option>
+                                        <option value="S">S</option>
+                                        <option value="T">T</option>
+                                        <option value="U">U</option>
+                                        <option value="V">V</option>
                                     </select>
                                 </div>
                             </li>
