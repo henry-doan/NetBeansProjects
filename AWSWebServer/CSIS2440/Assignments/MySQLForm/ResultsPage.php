@@ -21,7 +21,12 @@ $requestType = $_POST['requestType'];
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Results Page</title>
+        <title>Results Page</title
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </head>
     <body>
         <?php
@@ -94,12 +99,13 @@ $requestType = $_POST['requestType'];
                         echo "</tbody></table>";
                     }     
                 } else {
-                    echo "<p>You need to have the user name!</p>";
+                    echo "<p>You need to have an existing user name!</p>";
                 }  
                 break;
             case "Search":
 //                echo "search here";
-                $search = "SELECT * FROM Library.FandF WHERE fname LIKE '%$fname%' OR '%$lname'";
+                if ($fname || $lname) {
+                $search = "SELECT * FROM Library.FandF WHERE fname LIKE '%$fname%' AND lname LIKE '%$lname%'";
             
                 $return = $con->query($search);
 
@@ -124,6 +130,9 @@ $requestType = $_POST['requestType'];
                     . "</td><td>" . $row['relation'] . "</td></tr>";
                 }
                 echo "</tbody></table>";
+                } else {
+                    echo "<p>You're missing the First name or Last name</p>";
+                }
                 break;
             default: echo 'This is bad<br />';
         }

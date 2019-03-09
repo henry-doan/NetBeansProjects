@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>F and F Form</title>
     </head>
     <body>
         <h2>Fill out the form!</h2>
@@ -19,7 +19,7 @@ and open the template in the editor.
                             Create: be sure to fill out all of the fields correctly!
                         </p>
                         <p>
-                            Update: You can update address, city, zip, relation, and sex, and you would have to type in your username to update
+                            Update: You can update address, city, zip, relation, and sex, and you would have to type in an existing username to update
                         </p>
                         <p>
                             Search: You can search by First Name or Last Name
