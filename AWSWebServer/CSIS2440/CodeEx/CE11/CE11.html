@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adventure Table</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script>
+            function letsAdventure(choice) {
+                //creates the datafile with query string
+                var data_file = "Adventure.php?AdvID=" + choice;
+                //this is making the http request
+                var http_request = new XMLHttpRequest();
+               
+                // Browser Testing
+                try {
+                    http_request = new XMLHttpRequest();
+                } catch (e) {
+                    try {
+                        http_request = new ActiveXObject("Msxml2.XMLHTTP");
+                    } catch (e) {
+                        try {
+                            http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                        } catch (e) {
+                            alert("Your browser broke!");
+                            return false;
+                        }
+                    }
+                }
+                
+                // wait for state to change
+                http_request.onreadystatechange = function () {
+                    if (http_request.readyState === 4) {
+                        var text = http_request.responseText;
+
+                        document.getElementById("AdvTable").innerHTML = text;
+                    }
+                };
+                
+                // send the request
+                http_request.open("GET", data_file, true);
+                http_request.send();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="AdvTable">
+            <table>
+                <tr>
+                    <th>Lets Adventure</th>
+                </tr>
+                <tr>
+                    <div id="advText">
+                        Are You Ready?!?!
+                    </div>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="button1">
+                            <button type="button" value="1" onclick="letsAdventure(this.value)">
+                                Link Start!
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
