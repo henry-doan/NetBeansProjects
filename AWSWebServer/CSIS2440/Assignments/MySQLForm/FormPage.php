@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <h2>Fill out the form!</h2>
-        <form id="Addressbook" method="post" action="ResultsPage.php" onsubmit="return validateForm()">
+        <form id="Addressbook" name="myForm" method="post" action="ResultsPage.php">
             <table cellpadding="0" cellspacing="1">
                 <tbody>
                     <tr>
@@ -19,7 +19,7 @@ and open the template in the editor.
                             Create: be sure to fill out all of the fields correctly!
                         </p>
                         <p>
-                            Update: You can update address, city, zip, relation, and sex, and you would have to type in an existing username to update
+                            Update: For security reason you can only update the address, city, zip, relation, and sex, and you would have to type in an existing user and the rest of the form.
                         </p>
                         <p>
                             Search: You can search by First Name or Last Name
@@ -165,7 +165,7 @@ and open the template in the editor.
                     </tr>
                     <tr>
                         <td align="right">Sex: </td>
-                        <td><input name="sex" type="radio" checked="checked" value="Male">Male <input name="sex" type="radio" id="mypassword" value="Female">Female</td>
+                        <td><input name="sex" type="radio" checked="checked" value="Male">Male <input name="sex" type="radio" value="Female">Female</td>
                     </tr>
                     <tr>
                         <td align="right">
@@ -190,9 +190,9 @@ and open the template in the editor.
                         <td>
                             <table>
                                 <tbody><tr>
-                                        <td><input id="button_Search" type="submit" value="Search" name="requestType"> </td>
-                                        <td><input id="Button_update" type="submit" value="Update" name="requestType" onclick="return ValidUpdate()"></td>
-                                        <td><input id="Button_Input" type="submit" value="Create" name="requestType" onclick="return ValidCreate()"></td>
+                                        <td><input id="button_Search" type="submit" value="Search" name="requestType" onclick="return(validate())"> </td>
+                                        <td><input id="Button_update" type="submit" value="Update" name="requestType" onclick="return(validateFullForm())"></td>
+                                        <td><input id="Button_Input" type="submit" value="Create" name="requestType" onclick="return(validateFullForm())"></td>
                                     </tr>
                                 </tbody></table>
                         </td>
@@ -201,6 +201,7 @@ and open the template in the editor.
                 </tbody>
             </table>
         </form>
+        <script src="myjs.js"></script>
         <?php
         // put your code here
         ?>
