@@ -26,18 +26,15 @@ if (!$result) {
     die('Invalid query: ' . mysqli_error());
 } 
 
-// mysql_num_row is counting table rows
 $count = $result->num_rows;
 
-// if the result matched the username and password table row must be 1 row
 if ($count == 1) {
     $_SESSION['user'] = $myusername;
     $_SESSION['password'] = $mypassword;
     
-    // register with the name and password and redirect to the success
-    header("Location:CodeExLoginSuccess.php");
+    header("Location:catalogue.php");
 } else {
-    header("Location:CodeExLoginForm.php");
+    header("Location:LoginForm.php");
     $_SESSION['badPass']++;
 }
 

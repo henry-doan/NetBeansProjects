@@ -33,10 +33,12 @@ $requestType = $_POST['requestType'];
         switch ($requestType) {
             case "Create":
 //                echo "creating here";
+                $Hashed = hash("ripemd128", $mypassword);
+                
                 $insert = "INSERT INTO `Library`.`FandF` (`fname`, `lname`, `phone`, "
                     . "`address`, "
                         ."`city`, `state`, `zip`, `month`, `day`, `year`, `myusername`, `mypassword`, `sex`, `relation`) "
-                          . "VALUES ('$fname', '$lname', '$phone', '$address', '$city', '$state', $zip, $month, $day, $year, '$myusername', '$mypassword', '$sex', '$relation')";
+                          . "VALUES ('$fname', '$lname', '$phone', '$address', '$city', '$state', $zip, $month, $day, $year, '$myusername', '$Hashed', '$sex', '$relation')";
                 $success = $con->query($insert);
                 
                 $search = "SELECT * FROM Library.FandF WHERE myusername LIKE '%$myusername%'";
