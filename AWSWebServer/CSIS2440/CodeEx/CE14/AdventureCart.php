@@ -81,12 +81,30 @@
 
                 </div>
                 <div id="productInformation">
+                    
+                </div>
+                <div>
                     <?php
-                        
+                        if ($infonum > 0) {
+                            $sql = "SELECT Item, Cost, Weight, ItemImage FROM Library.AdventureGear WHERE idAdventureGear = " . $infonum;
+                            
+                            echo "<table align='left' width='100%'><tr><th>Name</th><th>Price</th><th>Weight</th>";
+                            $result = $con->query($sql);
+                                
+                             if(mysqli_num_rows($result) > 0) {
+                                list($infoname, $infoprice, $infoweight, $infoimage) = mysqli_fetch_row($result); 
+                                echo "<tr>";
+                                echo "<td align=\"center\" width=\"450px\">$infoname</td>";
+                                echo "<td align=\"center\" width=\"325px\">". money_format('%(#8n', $infoprice) . "</td>";
+                                echo "<td align=\"center\" width=\"75px\">$infoweight</td>";
+                                echo "<td align=\"left\" width=\"450px\"><img src='images\\$infoimage' height=\"160\" width=\"160px\"></td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";  
+                        }
                     
                     ?>
                 </div>
-                <div></div>
                 <div id="Display_cart">
                     <?php
                         if ($_SESSION['cart']) {
@@ -99,10 +117,7 @@
                                 $result = $con->query($sql);
                                 
                                 if(mysqli_num_rows($result) > 0) {
-                                    list($name, $price, $weight) = mysqli_fetch_row($result);
-//                                    echo $name;
-//                                    echo $price;
-//                                    echo $weight;
+                                    list($name, $price, $weight) = mysqli_fetch_row($result); 
                                     $weight = $weight * $quantity;
                                     $line_cost = $price * $quantity;
                                     $toWeight = $toWeight + $weight;
